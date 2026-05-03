@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+RUN echo '{"serverRuntimeConfig":{},"publicRuntimeConfig":{}}' > config.json
 RUN npm run build
 
 # Production stage
