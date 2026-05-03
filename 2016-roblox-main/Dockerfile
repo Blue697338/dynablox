@@ -1,16 +1,16 @@
 # Build stage
 FROM node:18-alpine AS builder
 WORKDIR /app
-COPY services/2016-roblox-main/package*.json ./
+COPY package*.json ./
 RUN npm ci
-COPY services/2016-roblox-main .
+COPY . .
 RUN npm run build
 
 # Production stage
 FROM node:18-alpine
 WORKDIR /app
 ENV NODE_ENV=production
-COPY services/2016-roblox-main/package*.json ./
+COPY package*.json ./
 RUN npm ci --only=production
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public

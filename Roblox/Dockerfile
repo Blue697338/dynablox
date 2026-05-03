@@ -1,7 +1,7 @@
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
-COPY services/Roblox .
+COPY . .
 RUN dotnet restore Roblox.sln
 RUN dotnet build -c Release --no-restore Roblox.sln
 
