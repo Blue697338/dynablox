@@ -1,0 +1,52 @@
+[
+  {
+    "brickColorId": 1,
+    "name": "Bright red",
+    "hexColor": "#FF0000"
+  },
+  {
+    "brickColorId": 2,
+    "name": "Bright blue",
+    "hexColor": "#0000FF"
+  },
+  {
+    "brickColorId": 3,
+    "name": "Bright green",
+    "hexColor": "#00FF00"
+  },
+  {
+    "brickColorId": 4,
+    "name": "Dark stone grey",
+    "hexColor": "#595959"
+  },
+  {
+    "brickColorId": 5,
+    "name": "Bright yellow",
+    "hexColor": "#FFFF00"
+  },
+  {
+    "brickColorId": 6,
+    "name": "Light stone grey",
+    "hexColor": "#A4A4A4"
+  },
+  {
+    "brickColorId": 7,
+    "name": "Brick yellow",
+    "hexColor": "#D7B029"
+  },
+  {
+    "brickColorId": 8,
+    "name": "White",
+    "hexColor": "#FFFFFF"
+  },
+  {
+    "brickColorId": 9,
+    "name": "Black",
+    "hexColor": "#000000"
+  },
+  {
+    "brickColorId": 10,
+    "name": "Dark grey",
+    "hexColor": "#2A2A2A"
+  }
+]
