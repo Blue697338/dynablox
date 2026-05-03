@@ -15,6 +15,5 @@ RUN dotnet publish Roblox.Website/Roblox.Website.csproj -c Release -o /app/publi
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY Roblox.Website/appsettings.json .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "Roblox.Website.dll"]
