@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: 2016-roblox-main
+    env: node
+    rootDir: 2016-roblox-main
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+  - type: web
+    name: roblox-website
+    env: dotnet
+    rootDir: Roblox
+    buildCommand: dotnet build -c Release Roblox.sln
+    startCommand: dotnet Roblox.Website/bin/Release/net6.0/Roblox.Website.dll
+    plan: free
