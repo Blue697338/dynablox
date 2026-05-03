@@ -1,0 +1,27 @@
+app = "roblox-website"
+primary_region = "sjc"
+
+[build]
+  builder = "heroku"
+
+[env]
+  ASPNETCORE_ENVIRONMENT = "Production"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 80
+  processes = ["app"]
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
