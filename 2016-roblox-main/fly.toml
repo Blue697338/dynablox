@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for roblox-2016-main-wandering-bush-9767 on 2026-05-03T16:56:41+02:00
+# fly.toml app configuration file generated for roblox-2016-main-solitary-field-5726 on 2026-05-03T17:02:38+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'roblox-2016-main-wandering-bush-9767'
+app = 'roblox-2016-main-solitary-field-5726'
 primary_region = 'sjc'
 
 [build]
@@ -33,5 +33,6 @@ primary_region = 'sjc'
 
 [[vm]]
   memory = '1gb'
+  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 1024

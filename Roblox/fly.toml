@@ -7,7 +7,7 @@ app = 'roblox-website-misty-butterfly-3669'
 primary_region = 'sjc'
 
 [build]
-  dockerfile = 'Dockerfile.dotnet'
+  dockerfile = 'Dockerfile'
 
 [env]
   ASPNETCORE_ENVIRONMENT = 'Production'
