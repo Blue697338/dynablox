@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "name": "dynablox",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/apisite/(.*)",
+      "dest": "https://www.dynablox.xyz/apisite/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "pages/api/**/*.js": {
+      "maxDuration": 30
+    }
+  }
+}
