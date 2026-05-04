@@ -28,7 +28,7 @@ for (const s in scripts) {
 		.replace(/isDebugServer = false/g, env === 'development' ? 'isDebugServer = true' : 'isDebugServer = false')
 		// set upload url
 		// .replace(/UPLOAD_URL_HERE/g, (dockerEnabled ? 'http://host.docker.internal' : 'http://127.0.0.1:') + conf.port + '/api/upload-thumbnail-v1')
-		.replace(/UPLOAD_URL_HERE/g, 'http://127.0.0.1:5000/api/upload-thumbnail-v1')
+		.replace(/UPLOAD_URL_HERE/g, 'http://127.0.0.1:5000/apisite/avatar/v1/upload-thumbnail-v1')
 		.replace(/AccessKey/g, conf.authorization.replace('"', '\\"'))
 		.replace(/local baseURL = "http:\/\/localhost";/g, `local baseURL = "${conf.baseUrl}";`)
 }

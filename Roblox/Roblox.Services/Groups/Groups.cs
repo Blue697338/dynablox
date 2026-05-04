@@ -173,7 +173,24 @@ public class GroupsService : ServiceBase, IService
                 group_id = groupId,
                 rank = rankValue,
             });
-        if (role == null) throw new RecordNotFoundException();
+        if (role == null)
+        {
+            // If rank 0 (guest) doesn't exist, create a default guest role
+            if (rankValue == 0)
+            {
+                return new RoleWithPermissions
+                {
+                    id = 0,
+                    groupId = groupId,
+                    name = "Guest",
+                    description = "A user who is not a member of this group",
+                    rank = 0,
+                    memberCount = 0,
+                    permissions = new RolePermissions()
+                };
+            }
+            throw new RecordNotFoundException();
+        }
         role.permissions = await GetPermissions(role.id);
         return role;
     }
@@ -1331,7 +1348,7 @@ public class GroupsService : ServiceBase, IService
         var sha = SHA256.Create();
         var bits = await sha.ComputeHashAsync(groupIconSafe.finalIconStream);
         var str = Convert.ToHexString(bits).ToLower() + ".png";
-        var fullFilePath = Configuration.GroupIconsDirectory + str;
+        var fullFilePath = Path.Combine(Configuration.GroupIconsDirectory, str);
         // Lock - mostly to prevent "The process cannot access the file 'image.png' because it is being used by another
         // process." errors in integration tests
         await using var groupIconLock =

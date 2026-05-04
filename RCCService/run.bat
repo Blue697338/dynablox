@@ -1,2 +1,2 @@
-cd /d "%~dp0"
-Bootstrapper.exe -Console
+cd C:\Users\lannu\Desktop\ecs\services\RCCService
+RCCService.exe -Console -placeid:1609

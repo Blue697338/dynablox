@@ -27,25 +27,37 @@ const PlayerHeadshot = (props) => {
   
   // Helper to convert thumbnail URL to backend URL if needed
   const getBackendUrl = (url) => {
+    console.log('[PlayerHeadshot] getBackendUrl input:', url);
     if (!url) return null;
+    
     // If URL is already an absolute URL to the backend, return as-is
-    if (url.startsWith('http://localhost:5000') || url.startsWith('https://localhost:5000')) {
+    if (url.startsWith('https://www.dynablox.xyz') || url.startsWith('http://localhost:5000') || url.startsWith('https://localhost:5000')) {
+      console.log('[PlayerHeadshot] already backend URL');
       return url;
     }
+    
     // If URL is an absolute URL to the frontend, replace with backend
-    if (url.startsWith('http://localhost:3000')) {
-      return url.replace('http://localhost:3000', 'http://localhost:5000');
+    if (url.startsWith('http://localhost:3000') || url.startsWith('https://www.dynablox.xyz')) {
+      const result = url.replace('http://localhost:3000', 'https://www.dynablox.xyz').replace('https://www.dynablox.xyz', 'https://www.dynablox.xyz');
+      console.log('[PlayerHeadshot] frontend URL, converted to:', result);
+      return result;
     }
+    
     // If URL is already an absolute URL (other), return as-is
     if (url.startsWith('http://') || url.startsWith('https://')) {
+      console.log('[PlayerHeadshot] other absolute URL');
       return url;
     }
-    // For relative URLs, convert to backend
-    if (url.startsWith('/')) {
-      return 'http://localhost:5000' + url;
+    
+    // Ensure URL starts with / for consistency
+    let normalizedUrl = url;
+    if (!normalizedUrl.startsWith('/')) {
+      normalizedUrl = '/' + normalizedUrl;
     }
-    // For relative URLs without leading slash, also convert to backend
-    return 'http://localhost:5000/' + url;
+    
+    const result = 'https://www.dynablox.xyz' + normalizedUrl;
+    console.log('[PlayerHeadshot] converted to:', result);
+    return result;
   };
   
   useEffect(() => {
@@ -56,7 +68,10 @@ const PlayerHeadshot = (props) => {
     }).then(image => {
       let u = image.find(v => v.targetId == props.id);
       if (u && u.imageUrl) {
-        setImage(getBackendUrl(u.imageUrl));
+        console.log('[PlayerHeadshot] imageUrl from API:', u.imageUrl);
+        const backendUrl = getBackendUrl(u.imageUrl);
+        console.log('[PlayerHeadshot] converted to:', backendUrl);
+        setImage(backendUrl);
       }
     });
   }, [props.id]);

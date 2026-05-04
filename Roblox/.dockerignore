@@ -1,0 +1,14 @@
+# flyctl launch added from .gitignore
+**\**\obj
+**\**\Properties
+**\**\appsettings.json
+**\**\appsettings.*.json
+**\**\bin
+
+# flyctl launch added from Roblox.Website\.gitignore
+Roblox.Website\**\obj
+Roblox.Website\**\Properties
+Roblox.Website\**\appsettings.json
+Roblox.Website\**\appsettings.*.json
+Roblox.Website\**\game-servers.json
+fly.toml

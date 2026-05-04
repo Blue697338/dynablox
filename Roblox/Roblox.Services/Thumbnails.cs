@@ -80,9 +80,9 @@ public class ThumbnailsService : ServiceBase, IService
             c.state = c.imageUrl == null ? ThumbnailState.Pending : ThumbnailState.Completed;
             if (c.imageUrl != null)
             {
-                // Remove leading slash if present
-                if (c.imageUrl.StartsWith("/"))
-                    c.imageUrl = c.imageUrl.Substring(1);
+                // Ensure URL starts with /
+                if (!c.imageUrl.StartsWith("/"))
+                    c.imageUrl = "/" + c.imageUrl;
                 c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
             }
             return c;
@@ -103,9 +103,9 @@ public class ThumbnailsService : ServiceBase, IService
             c.state = c.imageUrl == null ? ThumbnailState.Pending : ThumbnailState.Completed;
             if (c.imageUrl != null)
             {
-                // Remove leading slash if present
-                if (c.imageUrl.StartsWith("/"))
-                    c.imageUrl = c.imageUrl.Substring(1);
+                // Ensure URL starts with /
+                if (!c.imageUrl.StartsWith("/"))
+                    c.imageUrl = "/" + c.imageUrl;
                 c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
             }
             return c;
@@ -137,11 +137,11 @@ public class ThumbnailsService : ServiceBase, IService
             } 
             else if (!string.IsNullOrEmpty(c.imageUrl))
             {
-                c.imageUrl = "images/thumbnails/" + c.imageUrl + ".png";
+                c.imageUrl = "/images/thumbnails/" + c.imageUrl + ".png";
             }
 
             if (c.imageUrl != null && !string.IsNullOrEmpty(Roblox.Configuration.CdnBaseUrl))
-                c.imageUrl = Roblox.Configuration.CdnBaseUrl + "/" + c.imageUrl;
+                c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
 
             return new ThumbnailEntry()
             {
@@ -165,7 +165,12 @@ public class ThumbnailsService : ServiceBase, IService
         {
             c.state = c.imageUrl == null ? ThumbnailState.Pending : ThumbnailState.Completed;
             if (c.imageUrl != null)
+            {
+                // Ensure URL starts with /
+                if (!c.imageUrl.StartsWith("/"))
+                    c.imageUrl = "/" + c.imageUrl;
                 c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
+            }
             return c;
         });
     }
@@ -176,20 +181,34 @@ public class ThumbnailsService : ServiceBase, IService
         if (ids.Count == 0) return new ThumbnailEntry[] { };
         var query = new SqlBuilder();
         var t = query.AddTemplate(
-            "SELECT group_id as targetId, CASE WHEN is_approved = 1 THEN name END imageUrl FROM group_icon /**where**/");
+            "SELECT group_id as targetId, CASE WHEN is_approved = 1 OR is_approved = 0 THEN name END imageUrl FROM group_icon /**where**/");
         query.OrWhereMulti("group_id = $1", ids);
 
-        return (await db.QueryAsync<ThumbnailEntry>(t.RawSql, t.Parameters)).Select(c =>
+        try
         {
-            c.state = c.imageUrl == null ? ThumbnailState.Pending : ThumbnailState.Completed;
-            if (!string.IsNullOrEmpty(c.imageUrl))
+            return (await db.QueryAsync<ThumbnailEntry>(t.RawSql, t.Parameters)).Select(c =>
             {
-                c.imageUrl = "/images/groups/" + c.imageUrl;
-            }
-            if (c.imageUrl != null)
-                c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
-            return c;
-        });
+                c.state = c.imageUrl == null ? ThumbnailState.Pending : ThumbnailState.Completed;
+                if (!string.IsNullOrEmpty(c.imageUrl))
+                {
+                    c.imageUrl = "/images/groups/" + c.imageUrl;
+                }
+                if (c.imageUrl != null)
+                    c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
+                return c;
+            });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[GetGroupIcons] Error: {0}", ex.Message);
+            // Return empty results if there's an error
+            return ids.Select(id => new ThumbnailEntry 
+            { 
+                targetId = id, 
+                state = ThumbnailState.Pending,
+                imageUrl = null
+            });
+        }
     }
     
     public async Task<IEnumerable<ThumbnailEntry>> GetGameIcons(IEnumerable<long> universeIds)
@@ -210,11 +229,11 @@ public class ThumbnailsService : ServiceBase, IService
             
             if (!string.IsNullOrEmpty(c.imageUrl))
             {
-                c.imageUrl = "images/thumbnails/" + c.imageUrl + ".png";
+                c.imageUrl = "/images/thumbnails/" + c.imageUrl + ".png";
             }
             
             if (c.imageUrl != null && !string.IsNullOrEmpty(Roblox.Configuration.CdnBaseUrl))
-                c.imageUrl = Roblox.Configuration.CdnBaseUrl + "/" + c.imageUrl;
+                c.imageUrl = Roblox.Configuration.CdnBaseUrl + c.imageUrl;
 
             return new ThumbnailEntry()
             {

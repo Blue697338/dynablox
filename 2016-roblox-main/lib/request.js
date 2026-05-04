@@ -25,7 +25,16 @@ const getCsrfTokenFromCookie = () => {
 };
 
 const getFullUrl = (apiSite, fullUrl) => {
-  return config.publicRuntimeConfig.backend.apiFormat.replace(/\{0\}/g, apiSite).replace(/\{1\}/g, fullUrl);
+  let result = config.publicRuntimeConfig.backend.apiFormat.replace(/\{0\}/g, apiSite).replace(/\{1\}/g, fullUrl);
+  // Ensure domain URLs have https
+  if (result.includes('http://www.dynablox.xyz')) {
+    result = result.replace('http://www.dynablox.xyz', 'https://www.dynablox.xyz');
+  }
+  // Keep localhost for development
+  if (result.includes('http://localhost') && !result.includes('http://localhost:')) {
+    result = result.replace('http://localhost', 'http://localhost:5000');
+  }
+  return result;
 }
 
 const getBaseUrl = () => {
@@ -36,7 +45,15 @@ const getUrlWithProxy = (url) => {
   if (config.publicRuntimeConfig.backend.proxyEnabled) {
     // If URL is relative, convert to absolute backend URL
     if (url.startsWith('/')) {
-      url = 'http://localhost:5000' + url;
+      url = 'https://www.dynablox.xyz' + url;
+    }
+    // Ensure domain URLs have https
+    if (url.includes('http://www.dynablox.xyz')) {
+      url = url.replace('http://www.dynablox.xyz', 'https://www.dynablox.xyz');
+    }
+    // Keep localhost for development
+    if (url.includes('http://localhost') && !url.includes('http://localhost:')) {
+      url = url.replace('http://localhost', 'http://localhost:5000');
     }
     return '/api/proxy?url=' + encodeURIComponent(url);
   }

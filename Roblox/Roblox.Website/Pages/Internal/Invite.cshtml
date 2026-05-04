@@ -48,14 +48,14 @@
                         @foreach (var invite in Model.sentInvites)
                         {
                             <tr>
-                                <td>http://economy-simulator.org/auth/signup?inviteId=@invite.id</td>
+                                <td>http://localhost:3000/auth/signup?inviteId=@invite.id</td>
                                 @if (invite.userId == null)
                                 {
                                     <td>No</td>
                                 }
                                 else
                                 {
-                                    <td><a href="/users/@invite.userId/profile">Yes, By #@invite.userId</a></td>
+                    <td><a href="/users/@invite.userId/profile">Yes, By #@invite.userId</a></td>
                                 }
                                 <td>@invite.createdAt.ToString("R")</td>
                             </tr>

@@ -9,7 +9,15 @@ const toCsv = (str) => {
 const addBaseUrl = (arrayOfThumbs) => {
   return arrayOfThumbs.map(v => {
     if (typeof v.imageUrl === 'string' && !v.imageUrl.startsWith('http')) {
-      v.imageUrl = getBaseUrl() + v.imageUrl;
+      // Ensure imageUrl starts with / for proper concatenation
+      let url = v.imageUrl;
+      if (!url.startsWith('/')) {
+        url = '/' + url;
+      }
+      const baseUrl = getBaseUrl();
+      // Ensure baseUrl doesn't end with / to avoid double slashes
+      const cleanBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+      v.imageUrl = cleanBaseUrl + url;
     }
     return v;
   })

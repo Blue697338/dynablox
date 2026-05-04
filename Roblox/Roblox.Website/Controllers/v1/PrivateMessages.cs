@@ -26,10 +26,10 @@ public class PrivateMessagesControllerV1 : ControllerBase
                 name = "ROBLOX",
                 displayName = "ROBLOX",
             },
-            subject = "Welcome to our site!",
-            body = "Amogus drip official no virus 2019 hindi subtitles",
-            created = "2021-01-13T12:00:00.42Z",
-            updated = "2021-01-13T12:00:00.42Z",
+            subject = "Welcome to DynaBlox",
+            body = "Welcome to DynaBlox! We're excited to have you join our community. Check out the catalog, join groups, and start trading with other players!",
+            created = DateTime.UtcNow.ToString("O"),
+            updated = DateTime.UtcNow.ToString("O"),
         }
     };
     [HttpGet("announcements/metadata")]

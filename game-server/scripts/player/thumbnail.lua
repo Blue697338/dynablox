@@ -141,36 +141,46 @@ end
 
         -- Map color IDs to RGB values
         local colorMap = {
-            [364] = Color3.fromRGB(90, 76, 66),      -- Dark taupe
-            [217] = Color3.fromRGB(124, 92, 70),     -- Brown
-            [359] = Color3.fromRGB(175, 148, 131),   -- Linen
-            [18] = Color3.fromRGB(204, 142, 105),    -- Nougat
-            [125] = Color3.fromRGB(234, 184, 146),   -- Light orange
-            [361] = Color3.fromRGB(86, 66, 54),      -- Dirt brown
-            [192] = Color3.fromRGB(105, 64, 40),     -- Reddish brown
-            [351] = Color3.fromRGB(188, 155, 93),    -- Cork
-            [352] = Color3.fromRGB(199, 172, 120),   -- Burlap
-            [5] = Color3.fromRGB(215, 197, 154),     -- Brick yellow
-            [153] = Color3.fromRGB(149, 121, 119),   -- Sand red
-            [1007] = Color3.fromRGB(163, 75, 75),    -- Dusty Rose
-            [101] = Color3.fromRGB(218, 134, 122),   -- Medium red
-            [1025] = Color3.fromRGB(255, 201, 201),  -- Pastel orange
-            [330] = Color3.fromRGB(255, 152, 220),   -- Carnation pink
-            [135] = Color3.fromRGB(116, 134, 157),   -- Sand blue
-            [305] = Color3.fromRGB(82, 154, 174),    -- Steel blue
+            [0] = Color3.fromRGB(255, 255, 255),     -- Default to pure white
+            [1] = Color3.fromRGB(255, 0, 0),         -- Bright red
+            [2] = Color3.fromRGB(0, 0, 255),         -- Bright blue
+            [3] = Color3.fromRGB(0, 255, 0),         -- Bright green
+            [4] = Color3.fromRGB(89, 89, 89),        -- Dark stone grey
+            [5] = Color3.fromRGB(255, 255, 0),       -- Bright yellow
+            [6] = Color3.fromRGB(164, 164, 164),     -- Light stone grey
+            [7] = Color3.fromRGB(215, 176, 41),      -- Brick yellow
+            [8] = Color3.fromRGB(255, 255, 255),     -- White
+            [9] = Color3.fromRGB(0, 0, 0),           -- Black
+            [10] = Color3.fromRGB(42, 42, 42),       -- Dark grey
             [11] = Color3.fromRGB(128, 187, 220),    -- Pastel Blue
-            [1026] = Color3.fromRGB(177, 167, 255),  -- Pastel violet
-            [321] = Color3.fromRGB(167, 94, 155),    -- Lilac
+            [18] = Color3.fromRGB(204, 142, 105),    -- Nougat
+            [24] = Color3.fromRGB(245, 205, 48),     -- Bright yellow
+            [29] = Color3.fromRGB(161, 196, 140),    -- Medium green
+            [101] = Color3.fromRGB(218, 134, 122),   -- Medium red
+            [105] = Color3.fromRGB(226, 155, 64),    -- Br. yellowish orange
             [107] = Color3.fromRGB(0, 143, 156),     -- Bright bluish green
+            [125] = Color3.fromRGB(234, 184, 146),   -- Light orange
+            [135] = Color3.fromRGB(116, 134, 157),   -- Sand blue
+            [153] = Color3.fromRGB(149, 121, 119),   -- Sand red
+            [192] = Color3.fromRGB(105, 64, 40),     -- Reddish brown
+            [199] = Color3.fromRGB(99, 95, 98),      -- Dark stone grey
+            [217] = Color3.fromRGB(124, 92, 70),     -- Brown
+            [305] = Color3.fromRGB(82, 154, 174),    -- Steel blue
             [310] = Color3.fromRGB(91, 154, 76),     -- Shamrock
             [317] = Color3.fromRGB(124, 156, 107),   -- Moss
-            [29] = Color3.fromRGB(161, 196, 140),    -- Medium green
-            [105] = Color3.fromRGB(226, 155, 64),    -- Br. yellowish orange
-            [24] = Color3.fromRGB(245, 205, 48),     -- Bright yellow
+            [321] = Color3.fromRGB(167, 94, 155),    -- Lilac
+            [330] = Color3.fromRGB(255, 152, 220),   -- Carnation pink
             [334] = Color3.fromRGB(248, 217, 109),   -- Daisy orange
-            [199] = Color3.fromRGB(99, 95, 98),      -- Dark stone grey
+            [351] = Color3.fromRGB(188, 155, 93),    -- Cork
+            [352] = Color3.fromRGB(199, 172, 120),   -- Burlap
+            [359] = Color3.fromRGB(175, 148, 131),   -- Linen
+            [361] = Color3.fromRGB(86, 66, 54),      -- Dirt brown
+            [364] = Color3.fromRGB(90, 76, 66),      -- Dark taupe
+            [1001] = Color3.fromRGB(255, 255, 255),  -- Institutional white (changed to pure white)
             [1002] = Color3.fromRGB(205, 205, 205),  -- Mid gray
-            [1001] = Color3.fromRGB(248, 248, 248),  -- Institutional white
+            [1007] = Color3.fromRGB(163, 75, 75),    -- Dusty Rose
+            [1025] = Color3.fromRGB(255, 201, 201),  -- Pastel orange
+            [1026] = Color3.fromRGB(177, 167, 255),  -- Pastel violet
         }
 
         for part, colorId in pairs(colors) do
@@ -222,11 +232,11 @@ end
         local ok, data = pcall(function()
             return HttpService:PostAsync(uploadURL, HttpService:JSONEncode({
                 ['thumbnail'] = avatarEncoded,
-                ['userId'] = userId,
+                ['userId'] = tostring(userId),
                 ['accessKey'] = "AccessKey",
                 ['isHeadshot'] = false,
                 ['jobId'] = jobId,
-            }), Enum.HttpContentType.TextPlain)
+            }), Enum.HttpContentType.ApplicationJson)
         end)
         print("[debug] post over",ok,data)
     end

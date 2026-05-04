@@ -41,8 +41,8 @@ public class ViewUserInfo
 [Route("/")]
 public class WebController2021 : ControllerBase
 {
-    [HttpGet("/apisite/ecsv2/www/e.png")]
-    public void ReportEcsAnalticsV2()
+    [HttpGet("/apisite/dynablox/www/e.png")]
+    public void ReportDynaBloxAnalyticsV2()
     {
         
     }

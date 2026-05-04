@@ -58,21 +58,26 @@ const MyFeed = props => {
   return <div>
     <iframe id='homepage-iframe-feed' height='100%' scrolling='no' style={{ width: '100%', height: height, overflow: 'hidden' }} src={feedFrameUrl} onLoad={() => {
       logger.info('feed', 'feed iframe loaded');
-      // @ts-ignore
-      const current = document.getElementById('homepage-iframe-feed');
-      // @ts-ignore
-      const doc = current.contentWindow.document;
-      const body = doc.body;
-      const font = doc.createElement('link');
-      font.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap');
-      font.setAttribute('rel', 'stylesheet');
-      doc.body.appendChild(font);
-      const styles = doc.createElement('style');
-      styles.innerText = css;
-      // doc.appendElement(styles)
-      doc.body.appendChild(styles)
-      const height = body.scrollHeight + 10;
-      setHeight(height + 'px');
+      try {
+        // @ts-ignore
+        const current = document.getElementById('homepage-iframe-feed');
+        // @ts-ignore
+        const doc = current.contentWindow.document;
+        const body = doc.body;
+        const font = doc.createElement('link');
+        font.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap');
+        font.setAttribute('rel', 'stylesheet');
+        doc.body.appendChild(font);
+        const styles = doc.createElement('style');
+        styles.innerText = css;
+        // doc.appendElement(styles)
+        doc.body.appendChild(styles)
+        const height = body.scrollHeight + 10;
+        setHeight(height + 'px');
+      } catch (e) {
+        logger.warn('feed', 'Could not access iframe document (cross-origin)', e.message);
+        setHeight('500px');
+      }
     }}></iframe>
   </div>
 }

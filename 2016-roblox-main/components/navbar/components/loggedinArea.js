@@ -35,7 +35,7 @@ const SettingsDropdown = props => {
   const s = useDropdownStyles();
   return <div className={s.wrapper}>
     {authStore.isAdmin && <p className={`${s.text}`}>
-      <Link href='/admin'><a className='text-dark'>Admin Panel</a></Link>
+      <a href='https://www.dynablox.xyz/admin' className='text-dark' target='_blank' rel='noopener noreferrer'>Admin Panel</a>
     </p>}
     <p className={`${s.text}`}>
       <Link href='/My/Account'><a className='text-dark'>Settings</a></Link>

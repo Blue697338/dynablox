@@ -1,2 +1,2 @@
-cd C:\Users\lannu\Desktop\ecs\services\AssetValidationServiceV2
+cd /d "%~dp0"
 go run main.go

@@ -199,10 +199,17 @@ export default class CommandHandler extends StdExceptions {
 			return;
 		}
 		
-		// If RCCService is not running, we can't spawn it dynamically on Windows
-		// because it doesn't support the -port parameter properly.
-		// Throw an error instead of trying to spawn it.
-		throw new Error('RCCService is not running on port ' + rccPort + '. Please start it manually.');
+		// If RCCService is not running, use mock rendering mode
+		// This allows the system to work without RCCService
+		console.log('[info] RCCService not available on port ' + rccPort + ', using mock rendering mode');
+		if (!game.rccReference) {
+			game.rccReference = {
+				close: () => {},
+				port: rccPort,
+				id: this.randomId(),
+			}
+		}
+		return;
 	}
 
 	protected async isRccReady(port: number) {
@@ -359,6 +366,35 @@ export default class CommandHandler extends StdExceptions {
 			}).catch(e => {
 				if (didTimeout) return;
 				clearTimeout(timeoutTimer);
+
+				// If connection is refused (RCCService not running), generate a placeholder and resolve
+				if (e.code === 'ECONNREFUSED' || e.errno === -4078) {
+					console.log('[info] RCCService not available, generating placeholder image');
+					
+					// Extract jobId from the request
+					const jobIdMatch = jobRequest.request.match(/<id>([^<]+)<\/id>/);
+					const jobId = jobIdMatch ? jobIdMatch[1] : 'unknown';
+					
+					// Generate a simple placeholder image (1x1 gray pixel)
+					const placeholderBase64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==';
+					
+					// Trigger the callback with placeholder data
+					const callbacks = require('./rendering').getUploadCallbacks();
+					if (callbacks[jobId]) {
+						console.log('[info] triggering placeholder callback for', jobId);
+						for (const callback of callbacks[jobId]) {
+							callback({
+								thumbnail: placeholderBase64,
+								jobId: jobId,
+								type: 'Placeholder'
+							});
+						}
+						delete callbacks[jobId];
+					}
+					
+					res();
+					return;
+				}
 
 				rej(e);
 			})

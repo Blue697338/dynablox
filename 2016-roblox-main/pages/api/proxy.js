@@ -11,10 +11,10 @@ const UrlUtilities = (() => {
       return baseDomainParsed.hostname;
       console.log(baseDomainParsed.hostname)
     }else if (baseDomainParsed.type === ParseResultType.Reserved) {
-      if (baseDomainParsed.hostname === 'economy-simulator.org' || baseDomainParsed.hostname === 'localhost') {
+      if (baseDomainParsed.hostname === 'dynablox.local' || baseDomainParsed.hostname === 'localhost' || baseDomainParsed.hostname === 'dynablox.xyz' || baseDomainParsed.hostname === 'www.dynablox.xyz') {
         return baseDomainParsed.hostname;
       }
-      throw new Error('The only allowed reserved domain types are economy-simulator.org or localhost, got ' + baseDomainParsed.hostname);
+      throw new Error('The only allowed reserved domain types are dynablox.local, localhost, dynablox.xyz, or www.dynablox.xyz, got ' + baseDomainParsed.hostname);
     } else {
       //throw new Error('Unsupported domain type: ' + baseDomainParsed.type);
     }
@@ -34,8 +34,11 @@ const actualHandler = async (req, res) => {
   console.log('[proxy] received request for URL:', fullUrl);
   // Right now we just validate the URL. 
   // A safer approach might be to just send the parts of the URL (query params, path, api site) to this handler, then construct the correct URL here.
-  const isUrlSafe = UrlUtilities.isSafe(fullUrl);// typeof fullUrl === 'string' && fullUrl.toLowerCase().startsWith(getBaseUrl())
-  console.log('[proxy] URL is safe:', isUrlSafe);
+  
+  // Allow localhost URLs and dynablox.xyz
+  const isLocalhost = fullUrl && (fullUrl.includes('localhost') || fullUrl.includes('127.0.0.1') || fullUrl.includes('dynablox.xyz'));
+  const isUrlSafe = isLocalhost || UrlUtilities.isSafe(fullUrl);
+  console.log('[proxy] URL is safe:', isUrlSafe, 'isLocalhost:', isLocalhost);
 
   if (getConfig().publicRuntimeConfig.backend.proxyEnabled !== true || !isUrlSafe) {
     console.log('[proxy] rejecting request - proxyEnabled:', getConfig().publicRuntimeConfig.backend.proxyEnabled, 'isUrlSafe:', isUrlSafe);
@@ -110,6 +113,16 @@ const actualHandler = async (req, res) => {
     console.log('[proxy] making request to:', fullUrl, 'method:', req.method);
     console.log('[proxy] request headers:', Object.keys(requestHeaders).join(', '));
     console.log('[proxy] x-csrf-token present:', requestHeaders['x-csrf-token'] ? 'yes' : 'no');
+    
+    // Ensure domain URLs have https and localhost URLs have the port
+    if (fullUrl.includes('http://www.dynablox.xyz')) {
+      fullUrl = fullUrl.replace('http://www.dynablox.xyz', 'https://www.dynablox.xyz');
+      console.log('[proxy] rewritten URL to HTTPS:', fullUrl);
+    } else if (fullUrl.includes('http://localhost') && !fullUrl.includes('http://localhost:')) {
+      fullUrl = fullUrl.replace('http://localhost', 'http://localhost:5000');
+      console.log('[proxy] rewritten URL to:', fullUrl);
+    }
+    
     const result = await axios.request({
       method: req.method,
       url: fullUrl,
@@ -123,15 +136,15 @@ const actualHandler = async (req, res) => {
     for (const item of Object.getOwnPropertyNames(result.headers)) {
       let value = result.headers[item];
       if (item === 'set-cookie') {
-        // TODO: "localhost" needs to be configurable
+        // Replace roblox.com with dynablox.xyz for production
         if (typeof value === 'string') {
-          value = value.replace(/roblox\.com/g, 'economy-simulator.org');
-          // Remove Domain attribute so cookie is set for current domain (localhost:3000)
+          value = value.replace(/roblox\.com/g, 'dynablox.xyz');
+          // Remove Domain attribute so cookie is set for current domain
           value = value.replace(/;\s*Domain=[^;]*/i, '');
         } else {
           value.forEach((v, i, arr) => {
-            arr[i] = v.replace(/roblox\.com/g, 'economy-simulator.org');
-            // Remove Domain attribute so cookie is set for current domain (localhost:3000)
+            arr[i] = v.replace(/roblox\.com/g, 'dynablox.xyz');
+            // Remove Domain attribute so cookie is set for current domain
             arr[i] = arr[i].replace(/;\s*Domain=[^;]*/i, '');
           });
         }

@@ -247,6 +247,19 @@ public class AvatarControllerV1 : ControllerBase
         var existingAvatar = await services.avatar.GetAvatar(userId);
         var multiGetResults = await services.assets.MultiGetInfoById(assets);
 
+        // Ensure thumbnail URLs have leading slash for consistency
+        var thumbnailUrl = existingAvatar.thumbnailUrl;
+        var headshotUrl = existingAvatar.headshotUrl;
+        
+        if (!string.IsNullOrEmpty(thumbnailUrl) && !thumbnailUrl.StartsWith("/"))
+        {
+            thumbnailUrl = "/" + thumbnailUrl;
+        }
+        if (!string.IsNullOrEmpty(headshotUrl) && !headshotUrl.StartsWith("/"))
+        {
+            headshotUrl = "/" + headshotUrl;
+        }
+
         return new
         {
             scales = new
@@ -273,8 +286,8 @@ public class AvatarControllerV1 : ControllerBase
                     },
                 };
             }),
-            thumbnailUrl = existingAvatar.thumbnailUrl,
-            headshotUrl = existingAvatar.headshotUrl,
+            thumbnailUrl = thumbnailUrl,
+            headshotUrl = headshotUrl,
         };
     }
 
@@ -480,10 +493,22 @@ public class AvatarControllerV1 : ControllerBase
         Console.WriteLine("[UploadThumbnail] Request received: userId={0}, thumbnail length={1}, isHeadshot={2}", 
             request?.userId, request?.thumbnail?.Length ?? 0, request?.isHeadshot ?? false);
         
-        if (request == null || string.IsNullOrEmpty(request.userId) || string.IsNullOrEmpty(request.thumbnail))
+        if (request == null)
         {
-            Console.WriteLine("[UploadThumbnail] Validation failed: request={0}, userId={1}, thumbnail={2}", 
-                request == null ? "null" : "not null", 
+            Console.WriteLine("[UploadThumbnail] Request is null!");
+            throw new BadRequestException(0, "Request body is null");
+        }
+
+        Console.WriteLine("[UploadThumbnail] Request object: userId={0}, thumbnail={1}, isHeadshot={2}, accessKey={3}, jobId={4}",
+            request.userId ?? "null",
+            request.thumbnail == null ? "null" : $"length={request.thumbnail.Length}",
+            request.isHeadshot,
+            request.accessKey ?? "null",
+            request.jobId ?? "null");
+        
+        if (string.IsNullOrEmpty(request.userId) || string.IsNullOrEmpty(request.thumbnail))
+        {
+            Console.WriteLine("[UploadThumbnail] Validation failed: userId={0}, thumbnail={1}", 
                 string.IsNullOrEmpty(request?.userId) ? "empty" : "present",
                 string.IsNullOrEmpty(request?.thumbnail) ? "empty" : "present");
             throw new BadRequestException(0, "Missing userId or thumbnail");
@@ -501,8 +526,9 @@ public class AvatarControllerV1 : ControllerBase
         {
             imageData = Convert.FromBase64String(request.thumbnail);
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine("[UploadThumbnail] Base64 decode failed: {0}", ex.Message);
             throw new BadRequestException(0, "Invalid base64 thumbnail");
         }
 
@@ -512,12 +538,13 @@ public class AvatarControllerV1 : ControllerBase
 
         // Save the file
         await System.IO.File.WriteAllBytesAsync(filepath, imageData);
+        Console.WriteLine("[UploadThumbnail] Saved thumbnail to {0}", filepath);
 
         // Update the database with the thumbnail URL
         using var avatarService = ServiceProvider.GetOrCreate<AvatarService>();
         
         // Determine if this is a headshot or regular thumbnail based on the request
-        var thumbnailUrl = "images/thumbnails/" + filename + ".png";
+        var thumbnailUrl = "/images/thumbnails/" + filename + ".png";
         var headshotUrl = request.isHeadshot ? thumbnailUrl : null;
         var regularThumbnailUrl = !request.isHeadshot ? thumbnailUrl : null;
 
@@ -527,6 +554,12 @@ public class AvatarControllerV1 : ControllerBase
         var finalThumbnailUrl = !request.isHeadshot ? thumbnailUrl : existingAvatar.thumbnailUrl;
 
         await avatarService.UpdateUserAvatarImages(userId, finalHeadshotUrl, finalThumbnailUrl);
+        Console.WriteLine("[UploadThumbnail] Updated avatar images for userId={0}", userId);
+
+        // Clear the render status so the frontend knows rendering is complete
+        using var cache = ServiceProvider.GetOrCreate<AvatarCache>();
+        await cache.UnscheduleRenderAsync(userId);
+        Console.WriteLine("[UploadThumbnail] Render status cleared for userId={0}", userId);
 
         return new { success = true };
     }

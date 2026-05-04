@@ -18,8 +18,8 @@
     "keywords": [],
     "author": "",
     "devDependencies": {
-        "knex": "^0.95.12",
         "fs-extra": "^9.1.0",
+        "knex": "^0.95.15",
         "rimraf": "^3.0.2"
     },
     "dependencies": {

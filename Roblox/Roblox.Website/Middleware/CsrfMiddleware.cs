@@ -151,6 +151,7 @@ public class CsrfMiddleware : ControllerServicesExtended
         // avatar endpoints
         "/apisite/avatar/v1/avatar/set-body-colors",
         "/apisite/avatar/v1/avatar/set-wearing-assets",
+        "/apisite/avatar/v1/avatar/redraw-thumbnail",
         "/auth/ticket",
         "/auth/captcha",
         "/internal/invite",

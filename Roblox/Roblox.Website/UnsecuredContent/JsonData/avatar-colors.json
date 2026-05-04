@@ -48,5 +48,1085 @@
     "brickColorId": 10,
     "name": "Dark grey",
     "hexColor": "#2A2A2A"
+  },
+  {
+    "brickColorId": 11,
+    "name": "Pastel Blue",
+    "hexColor": "#80BBDC"
+  },
+  {
+    "brickColorId": 12,
+    "name": "Light royal blue",
+    "hexColor": "#9FC3E9"
+  },
+  {
+    "brickColorId": 13,
+    "name": "Hot pink",
+    "hexColor": "#FF00BF"
+  },
+  {
+    "brickColorId": 14,
+    "name": "Really red",
+    "hexColor": "#C91A09"
+  },
+  {
+    "brickColorId": 15,
+    "name": "Deep orange",
+    "hexColor": "#FF681F"
+  },
+  {
+    "brickColorId": 16,
+    "name": "Alder",
+    "hexColor": "#B4883E"
+  },
+  {
+    "brickColorId": 17,
+    "name": "Dusty Rose",
+    "hexColor": "#A05F35"
+  },
+  {
+    "brickColorId": 18,
+    "name": "Nougat",
+    "hexColor": "#CC8E69"
+  },
+  {
+    "brickColorId": 19,
+    "name": "Lavender",
+    "hexColor": "#E1D5ED"
+  },
+  {
+    "brickColorId": 20,
+    "name": "Light green",
+    "hexColor": "#C2DAB8"
+  },
+  {
+    "brickColorId": 21,
+    "name": "Bright violet",
+    "hexColor": "#C281DC"
+  },
+  {
+    "brickColorId": 22,
+    "name": "Bright reddish violet",
+    "hexColor": "#C470A0"
+  },
+  {
+    "brickColorId": 23,
+    "name": "Bright bluish violet",
+    "hexColor": "#5B5D9E"
+  },
+  {
+    "brickColorId": 24,
+    "name": "Bright yellow",
+    "hexColor": "#F5CD30"
+  },
+  {
+    "brickColorId": 25,
+    "name": "Earth orange",
+    "hexColor": "#FA9C1C"
+  },
+  {
+    "brickColorId": 26,
+    "name": "Earth green",
+    "hexColor": "#7DB538"
+  },
+  {
+    "brickColorId": 27,
+    "name": "Cyan",
+    "hexColor": "#00FFFF"
+  },
+  {
+    "brickColorId": 28,
+    "name": "Light yellow",
+    "hexColor": "#FFE383"
+  },
+  {
+    "brickColorId": 29,
+    "name": "Medium green",
+    "hexColor": "#A1C48C"
+  },
+  {
+    "brickColorId": 30,
+    "name": "Lime green",
+    "hexColor": "#9ACD32"
+  },
+  {
+    "brickColorId": 31,
+    "name": "Light bluish green",
+    "hexColor": "#9DD9D2"
+  },
+  {
+    "brickColorId": 32,
+    "name": "Aqua",
+    "hexColor": "#00FFFF"
+  },
+  {
+    "brickColorId": 33,
+    "name": "Light blue",
+    "hexColor": "#ADD8E6"
+  },
+  {
+    "brickColorId": 34,
+    "name": "Light red",
+    "hexColor": "#FF6961"
+  },
+  {
+    "brickColorId": 35,
+    "name": "Light reddish violet",
+    "hexColor": "#E4ADC8"
+  },
+  {
+    "brickColorId": 36,
+    "name": "Pastel yellow",
+    "hexColor": "#FDFD96"
+  },
+  {
+    "brickColorId": 37,
+    "name": "Bright green",
+    "hexColor": "#4CBB17"
+  },
+  {
+    "brickColorId": 38,
+    "name": "Dark orange",
+    "hexColor": "#FF8C00"
+  },
+  {
+    "brickColorId": 39,
+    "name": "Light bluish violet",
+    "hexColor": "#C3C3E5"
+  },
+  {
+    "brickColorId": 40,
+    "name": "Transparent",
+    "hexColor": "#FCFCFC"
+  },
+  {
+    "brickColorId": 41,
+    "name": "Tr. Red",
+    "hexColor": "#FF6E6E"
+  },
+  {
+    "brickColorId": 42,
+    "name": "Tr. Lg blue",
+    "hexColor": "#AEC9FF"
+  },
+  {
+    "brickColorId": 43,
+    "name": "Tr. Blue",
+    "hexColor": "#7BB6DB"
+  },
+  {
+    "brickColorId": 44,
+    "name": "Tr. Yellow",
+    "hexColor": "#F7F18D"
+  },
+  {
+    "brickColorId": 45,
+    "name": "Light blue",
+    "hexColor": "#B4D2E3"
+  },
+  {
+    "brickColorId": 46,
+    "name": "Tr. Flu. Reddish orange",
+    "hexColor": "#FF9A00"
+  },
+  {
+    "brickColorId": 47,
+    "name": "Tr. Green",
+    "hexColor": "#84B68D"
+  },
+  {
+    "brickColorId": 48,
+    "name": "Tr. Flu. Green",
+    "hexColor": "#CCFFCC"
+  },
+  {
+    "brickColorId": 49,
+    "name": "Phosph. White",
+    "hexColor": "#F5F5DC"
+  },
+  {
+    "brickColorId": 50,
+    "name": "Light orange brown",
+    "hexColor": "#FEBABD"
+  },
+  {
+    "brickColorId": 100,
+    "name": "Light reddish violet",
+    "hexColor": "#E4C0D4"
+  },
+  {
+    "brickColorId": 101,
+    "name": "Medium red",
+    "hexColor": "#DA867A"
+  },
+  {
+    "brickColorId": 102,
+    "name": "Medium blue",
+    "hexColor": "#6E99CA"
+  },
+  {
+    "brickColorId": 103,
+    "name": "Light grey",
+    "hexColor": "#C9CAC0"
+  },
+  {
+    "brickColorId": 104,
+    "name": "Bright violet",
+    "hexColor": "#6B327C"
+  },
+  {
+    "brickColorId": 105,
+    "name": "Br. yellowish orange",
+    "hexColor": "#E29B40"
+  },
+  {
+    "brickColorId": 106,
+    "name": "Bright orange",
+    "hexColor": "#DA8541"
+  },
+  {
+    "brickColorId": 107,
+    "name": "Bright bluish green",
+    "hexColor": "#008F9C"
+  },
+  {
+    "brickColorId": 108,
+    "name": "Earth yellow",
+    "hexColor": "#958A73"
+  },
+  {
+    "brickColorId": 110,
+    "name": "Bright bluish violet",
+    "hexColor": "#4C61DB"
+  },
+  {
+    "brickColorId": 111,
+    "name": "Tr. Brown",
+    "hexColor": "#A95C3E"
+  },
+  {
+    "brickColorId": 112,
+    "name": "Medium bluish violet",
+    "hexColor": "#6874CA"
+  },
+  {
+    "brickColorId": 113,
+    "name": "Tr. Medi. reddish violet",
+    "hexColor": "#E4ADC8"
+  },
+  {
+    "brickColorId": 115,
+    "name": "Med. yellowish green",
+    "hexColor": "#C7D23C"
+  },
+  {
+    "brickColorId": 116,
+    "name": "Med. bluish green",
+    "hexColor": "#55A5AF"
+  },
+  {
+    "brickColorId": 118,
+    "name": "Light bluish green",
+    "hexColor": "#B7D7D5"
+  },
+  {
+    "brickColorId": 119,
+    "name": "Br. yellowish green",
+    "hexColor": "#BBE90B"
+  },
+  {
+    "brickColorId": 120,
+    "name": "Lig. yellowish green",
+    "hexColor": "#D9E4A7"
+  },
+  {
+    "brickColorId": 121,
+    "name": "Med. yellowish orange",
+    "hexColor": "#F49B00"
+  },
+  {
+    "brickColorId": 123,
+    "name": "Br. reddish orange",
+    "hexColor": "#D67240"
+  },
+  {
+    "brickColorId": 124,
+    "name": "Bright reddish violet",
+    "hexColor": "#923978"
+  },
+  {
+    "brickColorId": 125,
+    "name": "Light orange",
+    "hexColor": "#EAB892"
+  },
+  {
+    "brickColorId": 126,
+    "name": "Tr. Bright bluish violet",
+    "hexColor": "#9CA3DB"
+  },
+  {
+    "brickColorId": 127,
+    "name": "Gold",
+    "hexColor": "#DBAC34"
+  },
+  {
+    "brickColorId": 128,
+    "name": "Dark nougat",
+    "hexColor": "#AD6140"
+  },
+  {
+    "brickColorId": 131,
+    "name": "Silver",
+    "hexColor": "#9CA3A8"
+  },
+  {
+    "brickColorId": 133,
+    "name": "Neon orange",
+    "hexColor": "#FF9933"
+  },
+  {
+    "brickColorId": 134,
+    "name": "Neon green",
+    "hexColor": "#39FF14"
+  },
+  {
+    "brickColorId": 135,
+    "name": "Sand blue",
+    "hexColor": "#74869D"
+  },
+  {
+    "brickColorId": 136,
+    "name": "Sand violet",
+    "hexColor": "#877C90"
+  },
+  {
+    "brickColorId": 137,
+    "name": "Medium orange",
+    "hexColor": "#FFA70B"
+  },
+  {
+    "brickColorId": 138,
+    "name": "Sand yellow",
+    "hexColor": "#958A73"
+  },
+  {
+    "brickColorId": 140,
+    "name": "Earth blue",
+    "hexColor": "#203A56"
+  },
+  {
+    "brickColorId": 141,
+    "name": "Earth green",
+    "hexColor": "#27462D"
+  },
+  {
+    "brickColorId": 143,
+    "name": "Tr. Flu. Blue",
+    "hexColor": "#7DBBDD"
+  },
+  {
+    "brickColorId": 145,
+    "name": "Sand blue metallic",
+    "hexColor": "#5A7C8E"
+  },
+  {
+    "brickColorId": 146,
+    "name": "Sand violet metallic",
+    "hexColor": "#7C6C6C"
+  },
+  {
+    "brickColorId": 147,
+    "name": "Sand yellow metallic",
+    "hexColor": "#8D7452"
+  },
+  {
+    "brickColorId": 148,
+    "name": "Dark grey metallic",
+    "hexColor": "#575857"
+  },
+  {
+    "brickColorId": 149,
+    "name": "Black metallic",
+    "hexColor": "#0A0A0A"
+  },
+  {
+    "brickColorId": 150,
+    "name": "Light grey metallic",
+    "hexColor": "#9C9C9C"
+  },
+  {
+    "brickColorId": 151,
+    "name": "Sand green",
+    "hexColor": "#789082"
+  },
+  {
+    "brickColorId": 153,
+    "name": "Sand red",
+    "hexColor": "#957977"
+  },
+  {
+    "brickColorId": 154,
+    "name": "Dark red",
+    "hexColor": "#801818"
+  },
+  {
+    "brickColorId": 157,
+    "name": "Tr. Flu. Yellow",
+    "hexColor": "#FFE371"
+  },
+  {
+    "brickColorId": 158,
+    "name": "Tr. Flu. Red",
+    "hexColor": "#FF5B5B"
+  },
+  {
+    "brickColorId": 168,
+    "name": "Gun metallic",
+    "hexColor": "#6C6E68"
+  },
+  {
+    "brickColorId": 176,
+    "name": "Red flip/flop",
+    "hexColor": "#B31004"
+  },
+  {
+    "brickColorId": 178,
+    "name": "Yellow flip/flop",
+    "hexColor": "#B89B4C"
+  },
+  {
+    "brickColorId": 179,
+    "name": "Silver flip/flop",
+    "hexColor": "#898788"
+  },
+  {
+    "brickColorId": 180,
+    "name": "Curry",
+    "hexColor": "#D27744"
+  },
+  {
+    "brickColorId": 190,
+    "name": "Fire Yellow",
+    "hexColor": "#FFC700"
+  },
+  {
+    "brickColorId": 191,
+    "name": "Flame yellowish orange",
+    "hexColor": "#F8BB3D"
+  },
+  {
+    "brickColorId": 192,
+    "name": "Reddish brown",
+    "hexColor": "#694028"
+  },
+  {
+    "brickColorId": 193,
+    "name": "Flame reddish orange",
+    "hexColor": "#D8603C"
+  },
+  {
+    "brickColorId": 194,
+    "name": "Medium stone grey",
+    "hexColor": "#9C9291"
+  },
+  {
+    "brickColorId": 195,
+    "name": "Royal blue",
+    "hexColor": "#0046A0"
+  },
+  {
+    "brickColorId": 196,
+    "name": "Dark Royal blue",
+    "hexColor": "#0E3E9A"
+  },
+  {
+    "brickColorId": 198,
+    "name": "Bright reddish lilac",
+    "hexColor": "#8E5597"
+  },
+  {
+    "brickColorId": 199,
+    "name": "Dark stone grey",
+    "hexColor": "#635F62"
+  },
+  {
+    "brickColorId": 200,
+    "name": "Lemon metalic",
+    "hexColor": "#828A5D"
+  },
+  {
+    "brickColorId": 208,
+    "name": "Light stone grey",
+    "hexColor": "#E5E4DF"
+  },
+  {
+    "brickColorId": 209,
+    "name": "Dark Curry",
+    "hexColor": "#B78A3D"
+  },
+  {
+    "brickColorId": 210,
+    "name": "Faded green",
+    "hexColor": "#70819A"
+  },
+  {
+    "brickColorId": 211,
+    "name": "Turquoise",
+    "hexColor": "#008080"
+  },
+  {
+    "brickColorId": 212,
+    "name": "Light Royal blue",
+    "hexColor": "#7C9C6B"
+  },
+  {
+    "brickColorId": 213,
+    "name": "Medium Royal blue",
+    "hexColor": "#6074B1"
+  },
+  {
+    "brickColorId": 216,
+    "name": "Rust",
+    "hexColor": "#B31004"
+  },
+  {
+    "brickColorId": 217,
+    "name": "Brown",
+    "hexColor": "#7C5C46"
+  },
+  {
+    "brickColorId": 218,
+    "name": "Reddish lilac",
+    "hexColor": "#8E5597"
+  },
+  {
+    "brickColorId": 219,
+    "name": "Lilac",
+    "hexColor": "#564E9D"
+  },
+  {
+    "brickColorId": 220,
+    "name": "Light lilac",
+    "hexColor": "#A0A5C7"
+  },
+  {
+    "brickColorId": 221,
+    "name": "Bright purple",
+    "hexColor": "#C281DC"
+  },
+  {
+    "brickColorId": 222,
+    "name": "Light purple",
+    "hexColor": "#E4ADC8"
+  },
+  {
+    "brickColorId": 223,
+    "name": "Light pink",
+    "hexColor": "#FFC0CB"
+  },
+  {
+    "brickColorId": 224,
+    "name": "Light brick yellow",
+    "hexColor": "#F5CD30"
+  },
+  {
+    "brickColorId": 225,
+    "name": "Warm yellowish orange",
+    "hexColor": "#F49B00"
+  },
+  {
+    "brickColorId": 226,
+    "name": "Cool yellow",
+    "hexColor": "#FDFD96"
+  },
+  {
+    "brickColorId": 232,
+    "name": "Dove blue",
+    "hexColor": "#87C0EA"
+  },
+  {
+    "brickColorId": 268,
+    "name": "Medium lilac",
+    "hexColor": "#52548D"
+  },
+  {
+    "brickColorId": 301,
+    "name": "Slime green",
+    "hexColor": "#80FF00"
+  },
+  {
+    "brickColorId": 302,
+    "name": "Smoky grey",
+    "hexColor": "#5C5C5C"
+  },
+  {
+    "brickColorId": 303,
+    "name": "Dark blue",
+    "hexColor": "#0000A0"
+  },
+  {
+    "brickColorId": 304,
+    "name": "Parsley green",
+    "hexColor": "#3D642D"
+  },
+  {
+    "brickColorId": 305,
+    "name": "Steel blue",
+    "hexColor": "#527CAE"
+  },
+  {
+    "brickColorId": 306,
+    "name": "Storm blue",
+    "hexColor": "#4C61DB"
+  },
+  {
+    "brickColorId": 307,
+    "name": "Lapis",
+    "hexColor": "#0E3E9A"
+  },
+  {
+    "brickColorId": 308,
+    "name": "Dark indigo",
+    "hexColor": "#2E1D86"
+  },
+  {
+    "brickColorId": 309,
+    "name": "Sea green",
+    "hexColor": "#2E8B57"
+  },
+  {
+    "brickColorId": 310,
+    "name": "Shamrock",
+    "hexColor": "#5B9A4C"
+  },
+  {
+    "brickColorId": 311,
+    "name": "Fossil",
+    "hexColor": "#C9CAC0"
+  },
+  {
+    "brickColorId": 312,
+    "name": "Mulberry",
+    "hexColor": "#923978"
+  },
+  {
+    "brickColorId": 313,
+    "name": "Forest green",
+    "hexColor": "#228B22"
+  },
+  {
+    "brickColorId": 314,
+    "name": "Cadet blue",
+    "hexColor": "#5F9EA0"
+  },
+  {
+    "brickColorId": 315,
+    "name": "Electric blue",
+    "hexColor": "#7DF9FF"
+  },
+  {
+    "brickColorId": 316,
+    "name": "Eggplant",
+    "hexColor": "#614051"
+  },
+  {
+    "brickColorId": 317,
+    "name": "Moss",
+    "hexColor": "#7C9C6B"
+  },
+  {
+    "brickColorId": 318,
+    "name": "Artichoke",
+    "hexColor": "#8F9779"
+  },
+  {
+    "brickColorId": 319,
+    "name": "Sage green",
+    "hexColor": "#9ACD32"
+  },
+  {
+    "brickColorId": 320,
+    "name": "Ghost grey",
+    "hexColor": "#C9CAC0"
+  },
+  {
+    "brickColorId": 321,
+    "name": "Lilac",
+    "hexColor": "#A75E9B"
+  },
+  {
+    "brickColorId": 322,
+    "name": "Plum",
+    "hexColor": "#8E3179"
+  },
+  {
+    "brickColorId": 323,
+    "name": "Olivine",
+    "hexColor": "#9AB973"
+  },
+  {
+    "brickColorId": 324,
+    "name": "Laurel green",
+    "hexColor": "#A9B57C"
+  },
+  {
+    "brickColorId": 325,
+    "name": "Quill grey",
+    "hexColor": "#D9D9D9"
+  },
+  {
+    "brickColorId": 327,
+    "name": "Crimson",
+    "hexColor": "#DC143C"
+  },
+  {
+    "brickColorId": 328,
+    "name": "Mint",
+    "hexColor": "#98FF98"
+  },
+  {
+    "brickColorId": 329,
+    "name": "Baby blue",
+    "hexColor": "#89CFF0"
+  },
+  {
+    "brickColorId": 330,
+    "name": "Carnation pink",
+    "hexColor": "#FF98DC"
+  },
+  {
+    "brickColorId": 331,
+    "name": "Persimmon",
+    "hexColor": "#FF6347"
+  },
+  {
+    "brickColorId": 332,
+    "name": "Maroon",
+    "hexColor": "#800000"
+  },
+  {
+    "brickColorId": 333,
+    "name": "Gold",
+    "hexColor": "#FFD700"
+  },
+  {
+    "brickColorId": 334,
+    "name": "Daisy orange",
+    "hexColor": "#F8D96D"
+  },
+  {
+    "brickColorId": 335,
+    "name": "Pearl",
+    "hexColor": "#F0EAD6"
+  },
+  {
+    "brickColorId": 336,
+    "name": "Fog",
+    "hexColor": "#C9CAC0"
+  },
+  {
+    "brickColorId": 337,
+    "name": "Salmon",
+    "hexColor": "#FA8072"
+  },
+  {
+    "brickColorId": 338,
+    "name": "Terra Cotta",
+    "hexColor": "#E2725B"
+  },
+  {
+    "brickColorId": 339,
+    "name": "Cocoa",
+    "hexColor": "#D2691E"
+  },
+  {
+    "brickColorId": 340,
+    "name": "Wheat",
+    "hexColor": "#F5DEB3"
+  },
+  {
+    "brickColorId": 341,
+    "name": "Buttermilk",
+    "hexColor": "#FFF8DC"
+  },
+  {
+    "brickColorId": 342,
+    "name": "Mauve",
+    "hexColor": "#E0B0FF"
+  },
+  {
+    "brickColorId": 343,
+    "name": "Sunrise",
+    "hexColor": "#FFDB58"
+  },
+  {
+    "brickColorId": 344,
+    "name": "Tawny",
+    "hexColor": "#CD5700"
+  },
+  {
+    "brickColorId": 345,
+    "name": "Rust",
+    "hexColor": "#B7410E"
+  },
+  {
+    "brickColorId": 346,
+    "name": "Cashmere",
+    "hexColor": "#E6BEA5"
+  },
+  {
+    "brickColorId": 347,
+    "name": "Khaki",
+    "hexColor": "#F0E68C"
+  },
+  {
+    "brickColorId": 348,
+    "name": "Lily white",
+    "hexColor": "#E8F1D4"
+  },
+  {
+    "brickColorId": 349,
+    "name": "Seashell",
+    "hexColor": "#FFF5EE"
+  },
+  {
+    "brickColorId": 350,
+    "name": "Burgundy",
+    "hexColor": "#800020"
+  },
+  {
+    "brickColorId": 351,
+    "name": "Cork",
+    "hexColor": "#BC9B5D"
+  },
+  {
+    "brickColorId": 352,
+    "name": "Burlap",
+    "hexColor": "#C7AC78"
+  },
+  {
+    "brickColorId": 353,
+    "name": "Beige",
+    "hexColor": "#F5F5DC"
+  },
+  {
+    "brickColorId": 354,
+    "name": "Oyster",
+    "hexColor": "#E8E4C9"
+  },
+  {
+    "brickColorId": 355,
+    "name": "Pine Cone",
+    "hexColor": "#6F4E37"
+  },
+  {
+    "brickColorId": 356,
+    "name": "Fawn brown",
+    "hexColor": "#9F8170"
+  },
+  {
+    "brickColorId": 357,
+    "name": "Hurricane grey",
+    "hexColor": "#8B8680"
+  },
+  {
+    "brickColorId": 358,
+    "name": "Cloudy grey",
+    "hexColor": "#BCC6CC"
+  },
+  {
+    "brickColorId": 359,
+    "name": "Linen",
+    "hexColor": "#AF9483"
+  },
+  {
+    "brickColorId": 360,
+    "name": "Copper",
+    "hexColor": "#B87333"
+  },
+  {
+    "brickColorId": 361,
+    "name": "Dirt brown",
+    "hexColor": "#564236"
+  },
+  {
+    "brickColorId": 362,
+    "name": "Bronze",
+    "hexColor": "#CD7F32"
+  },
+  {
+    "brickColorId": 363,
+    "name": "Flint",
+    "hexColor": "#6A5D4D"
+  },
+  {
+    "brickColorId": 364,
+    "name": "Dark taupe",
+    "hexColor": "#5A4C42"
+  },
+  {
+    "brickColorId": 365,
+    "name": "Burnt Sienna",
+    "hexColor": "#E97451"
+  },
+  {
+    "brickColorId": 1001,
+    "name": "Institutional white",
+    "hexColor": "#F8F8F8"
+  },
+  {
+    "brickColorId": 1002,
+    "name": "Mid gray",
+    "hexColor": "#CDCDCD"
+  },
+  {
+    "brickColorId": 1003,
+    "name": "Really black",
+    "hexColor": "#000000"
+  },
+  {
+    "brickColorId": 1004,
+    "name": "Really red",
+    "hexColor": "#FF0000"
+  },
+  {
+    "brickColorId": 1005,
+    "name": "Deep orange",
+    "hexColor": "#FF8800"
+  },
+  {
+    "brickColorId": 1006,
+    "name": "Alder",
+    "hexColor": "#B4883E"
+  },
+  {
+    "brickColorId": 1007,
+    "name": "Dusty Rose",
+    "hexColor": "#A34B4B"
+  },
+  {
+    "brickColorId": 1008,
+    "name": "Olive",
+    "hexColor": "#808000"
+  },
+  {
+    "brickColorId": 1009,
+    "name": "New Yeller",
+    "hexColor": "#FFFF00"
+  },
+  {
+    "brickColorId": 1010,
+    "name": "Really blue",
+    "hexColor": "#0000FF"
+  },
+  {
+    "brickColorId": 1011,
+    "name": "Navy blue",
+    "hexColor": "#000080"
+  },
+  {
+    "brickColorId": 1012,
+    "name": "Deep blue",
+    "hexColor": "#0000A0"
+  },
+  {
+    "brickColorId": 1013,
+    "name": "Cyan",
+    "hexColor": "#00FFFF"
+  },
+  {
+    "brickColorId": 1014,
+    "name": "CGA brown",
+    "hexColor": "#AA5500"
+  },
+  {
+    "brickColorId": 1015,
+    "name": "Magenta",
+    "hexColor": "#FF00FF"
+  },
+  {
+    "brickColorId": 1016,
+    "name": "Pink",
+    "hexColor": "#FFC0CB"
+  },
+  {
+    "brickColorId": 1017,
+    "name": "Deep orange",
+    "hexColor": "#FF6600"
+  },
+  {
+    "brickColorId": 1018,
+    "name": "Teal",
+    "hexColor": "#008080"
+  },
+  {
+    "brickColorId": 1019,
+    "name": "Toothpaste",
+    "hexColor": "#00FFFF"
+  },
+  {
+    "brickColorId": 1020,
+    "name": "Lime green",
+    "hexColor": "#00FF00"
+  },
+  {
+    "brickColorId": 1021,
+    "name": "Camo",
+    "hexColor": "#3B5323"
+  },
+  {
+    "brickColorId": 1022,
+    "name": "Grime",
+    "hexColor": "#7C7C7C"
+  },
+  {
+    "brickColorId": 1023,
+    "name": "Lavender",
+    "hexColor": "#E6E6FA"
+  },
+  {
+    "brickColorId": 1024,
+    "name": "Pastel light blue",
+    "hexColor": "#AFEEEE"
+  },
+  {
+    "brickColorId": 1025,
+    "name": "Pastel orange",
+    "hexColor": "#FFC9C9"
+  },
+  {
+    "brickColorId": 1026,
+    "name": "Pastel violet",
+    "hexColor": "#B1A7FF"
+  },
+  {
+    "brickColorId": 1027,
+    "name": "Pastel blue-green",
+    "hexColor": "#9DD9D2"
+  },
+  {
+    "brickColorId": 1028,
+    "name": "Pastel green",
+    "hexColor": "#C2DAB8"
+  },
+  {
+    "brickColorId": 1029,
+    "name": "Pastel yellow",
+    "hexColor": "#FDFD96"
+  },
+  {
+    "brickColorId": 1030,
+    "name": "Pastel brown",
+    "hexColor": "#C19A6B"
+  },
+  {
+    "brickColorId": 1031,
+    "name": "Royal purple",
+    "hexColor": "#7851A9"
+  },
+  {
+    "brickColorId": 1032,
+    "name": "Hot pink",
+    "hexColor": "#FF69B4"
   }
 ]
